@@ -3,8 +3,8 @@
 namespace App\Repositories;
 
 use Illuminate\Database\Eloquent\Model;
-use App\Repositories\BaseRepositoryInterface;
 use Spatie\QueryBuilder\QueryBuilder;
+use App\Repositories\Interfaces\BaseRepositoryInterface;
 
 class BaseRepository implements BaseRepositoryInterface
 {
@@ -25,11 +25,11 @@ class BaseRepository implements BaseRepositoryInterface
     public function getListUsingQueryBuilder()
     {
         return QueryBuilder::for($this->eloquentModel)
-                ->allowedFilters($this->searchFilters)
-                ->defaultSort('-id')
-                ->allowedSorts($this->sortFilters)
-                ->allowedIncludes($this->relationships)
-                ->get();
+            ->allowedFilters($this->searchFilters)
+            ->defaultSort('-id')
+            ->allowedSorts($this->sortFilters)
+            ->allowedIncludes($this->relationships)
+            ->get();
     }
 
     public function getPaginated($page = 1, $pageSize = 25, $orderBy = 'created_at', $sortBy = 'asc')
@@ -47,7 +47,7 @@ class BaseRepository implements BaseRepositoryInterface
         return $this->model->create($data);
     }
 
-    public function updateById($id, $data)
+    public function updateById($id, $data, $file = null)
     {
         return tap($this->model->find($id))->update($data)->first();
     }
