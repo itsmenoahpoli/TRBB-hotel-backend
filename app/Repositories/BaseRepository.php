@@ -44,21 +44,21 @@ class BaseRepository implements BaseRepositoryInterface
 
     public function create($data)
     {
-        return $this->model->create($data);
+        return $this->model->query()->create($data);
     }
 
     public function updateById($id, $data, $file = null)
     {
-        return tap($this->model->find($id))->update($data)->first();
+        return tap($this->model->query()->find($id))->update($data)->first();
     }
 
     public function getById($id)
     {
-        return $this->model->with($this->relationships)->find($id);
+        return $this->model->query()->with($this->relationships)->find($id);
     }
 
     public function deleteById($id)
     {
-        return $this->model->findOrFail($id)->delete();
+        return $this->model->query()->findOrFail($id)->delete();
     }
 }

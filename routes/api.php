@@ -13,6 +13,7 @@ use App\Http\Controllers\Api\Admin\RolesController;
 
 Route::prefix('v1')->group(function() {
     Route::get('healthcheck', [SystemController::class, 'healthcheck'])->name('api.healthcheck');
+    Route::post('testmail', [SystemController::class, 'testmail'])->name('api.testmail');
 
     /**
      * Auth Routes
