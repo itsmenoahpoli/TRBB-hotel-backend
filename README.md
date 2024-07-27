@@ -5,9 +5,9 @@
 Installation Guide
 
 ```bash
-git clone  https://github.com/itsmenoahpoli/hotel-management-laravue.git
+git clone  https://github.com/itsmenoahpoli/TRBB-hotel-backend.git 
 
-cd hotel-management-laravue
+cd TRBB-hotel-backend
 
 composer install
 
@@ -15,22 +15,15 @@ cp .env.example .env # Open .env then set the mysql database credentials
 
 php artisan key:generate
 
-npm install
+php artisan migrate --seed
 
-# Open two terminal/command line with the project's directory
-# then run these command on each
-
-# Terminal 1
 php artisan serve
 
-# Terminal 2
 npm run dev
 ```
 
 ---
 
 <small>Modules:</small>
-
-Admin
 
 ---
