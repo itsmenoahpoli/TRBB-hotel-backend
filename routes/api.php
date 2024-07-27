@@ -10,8 +10,6 @@ use App\Http\Controllers\Api\AuthController;
  */
 use App\Http\Controllers\Api\Admin\AccountsController;
 use App\Http\Controllers\Api\Admin\RolesController;
-use App\Http\Controllers\Api\Admin\AnnouncementsController;
-use App\Http\Controllers\Api\Admin\EventsController;
 
 Route::prefix('v1')->group(function() {
     Route::get('healthcheck', [SystemController::class, 'healthcheck'])->name('api.healthcheck');
