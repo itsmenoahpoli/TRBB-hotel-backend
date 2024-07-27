@@ -5,19 +5,11 @@
 Installation Guide
 
 ```bash
-git clone  https://github.com/itsmenoahpoli/TRBB-hotel-backend.git 
+git clone https://github.com/itsmenoahpoli/TRBB-hotel-frontend.git
 
-cd TRBB-hotel-backend
+cd TRBB-hotel-bafrontendckend
 
-composer install
-
-cp .env.example .env # Open .env then set the mysql database credentials
-
-php artisan key:generate
-
-php artisan migrate --seed
-
-php artisan serve
+npm install
 
 npm run dev
 ```
