@@ -8,8 +8,8 @@ use Illuminate\Http\JsonResponse;
 use Symfony\Component\HttpFoundation\Response;
 use App\Helpers\ParamsHelpers;
 use App\Services\Admin\RolesService;
-use App\Http\Requests\Admin\Role\CreateRoleRequest;
-use App\Http\Requests\Admin\Role\UpdateRoleRequest;
+use App\Http\Requests\Admin\Roles\CreateRoleRequest;
+use App\Http\Requests\Admin\Roles\UpdateRoleRequest;
 
 class RolesController extends Controller
 {
