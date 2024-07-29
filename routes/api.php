@@ -16,7 +16,7 @@ Route::prefix('v1')->group(function() {
     Route::get('healthcheck', [SystemController::class, 'healthcheck'])->name('api.healthcheck');
     Route::post('testmail', [SystemController::class, 'testmail'])->name('api.testmail');
 
-    /**
+   /**
      * Auth Routes
      */
     Route::prefix('auth')->group(function () {
