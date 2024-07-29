@@ -6,10 +6,10 @@ use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use Illuminate\Http\JsonResponse;
 use Symfony\Component\HttpFoundation\Response;
-use App\Helpers\ParamsHelpers;
+use App\Helpers\ParamsHelper;
 use App\Services\Admin\AccountsService;
-use App\Http\Requests\Admin\User\CreateAccountRequest;
-use App\Http\Requests\Admin\User\UpdateAccountRequest;
+use App\Http\Requests\Admin\Accounts\CreateAccountRequest;
+use App\Http\Requests\Admin\Accounts\UpdateAccountRequest;
 
 class AccountsController extends Controller
 {
@@ -23,8 +23,8 @@ class AccountsController extends Controller
      */
     public function index(Request $request) : JsonResponse
     {
-        $params = ParamsHelpers::paginationParams($request->query());
-        $result = ParamsHelpers::hasExpectsRawList($params)
+        $params = ParamsHelper::paginationParams($request->query());
+        $result = ParamsHelper::hasExpectsRawList($params)
             ? $this->service->getUnpaginated()
             : $this->service->getPaginated(
                 $params['pageNumber'],

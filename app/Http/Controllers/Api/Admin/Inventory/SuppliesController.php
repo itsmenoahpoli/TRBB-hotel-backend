@@ -6,7 +6,7 @@ use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use Illuminate\Http\JsonResponse;
 use Symfony\Component\HttpFoundation\Response;
-use App\Helpers\ParamsHelpers;
+use App\Helpers\ParamsHelper;
 use App\Services\Admin\Inventory\InventorySuppliesService;
 use App\Http\Requests\Admin\Inventpry\CreateSupplyRequest;
 use App\Http\Requests\Admin\Inventpry\UpdateSupplyRequest;
@@ -23,8 +23,8 @@ class SuppliesController extends Controller
      */
     public function index(Request $request) : JsonResponse
     {
-        $params = ParamsHelpers::paginationParams($request->query());
-        $result = ParamsHelpers::hasExpectsRawList($params)
+        $params = ParamsHelper::paginationParams($request->query());
+        $result = ParamsHelper::hasExpectsRawList($params)
             ? $this->service->getUnpaginated()
             : $this->service->getPaginated(
                 $params['pageNumber'],

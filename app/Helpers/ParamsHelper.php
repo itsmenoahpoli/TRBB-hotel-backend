@@ -2,7 +2,7 @@
 
 namespace App\Helpers;
 
-class ParamsHelpers
+class ParamsHelper
 {
     public static function paginationParams($params)
     {
