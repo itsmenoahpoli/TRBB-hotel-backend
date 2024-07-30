@@ -13,10 +13,6 @@ class PaymentsService
         'authorization' => 'Basic '.$this->_headerAuthToken()
     ];
 
-    public function __construct()
-    {}
-
-
     private function _headerAuthToken() {
         $publicKey = env('PAYMONGO_PUBLIC_KEY');
         $secretKey = env('PAYMONGO_SECRET_KEY');
@@ -42,20 +38,5 @@ class PaymentsService
         );
 
         return json_decode($response->body());
-    }
-
-    public function getPaymentsByUser()
-    {
-        //
-    }
-
-    public function getPayment()
-    {
-        //
-    }
-
-    public function getPaymentByReferenceNo()
-    {
-        //
     }
 }

@@ -5,11 +5,14 @@ namespace App\Services;
 use Symfony\Component\HttpKernel\Exception\HttpException;
 use Illuminate\Support\Facades\Auth;
 use App\Models\User;
+use App\Models\UserOtp;
+use Symfony\Component\HttpKernel\Exception\NotFoundHttpException;
 
 class AuthService
 {
     public function __construct(
-        private readonly User $user
+        private readonly User $user,
+        private readonly UserOtp $userOtp
     )
     {}
 
@@ -39,5 +42,28 @@ class AuthService
         $user->currentAccessToken()->delete();
 
         return null;
+    }
+
+    public function createOTP($email)
+    {
+        $user = $this->user->query()->find('email', $email)->first();
+
+        if (!$user)
+        {
+            throw new NotFoundHttpException('USER_NOT_FOUND');
+        }
+
+        $this->userOtp->query()->create([
+            'user_id'   => $user->id,
+            'code'      => '1234',
+            'is_used'   => false
+        ]);
+
+        return true;
+    }
+
+    public function verifyOTP($email, $otp)
+    {
+        //
     }
 }
