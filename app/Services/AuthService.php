@@ -57,7 +57,7 @@ class AuthService
 
         $this->userOtp->query()->create([
             'user_id'   => $user->id,
-            'code'      => '1234',
+            'code'      => rand(1000, 9999),
             'is_used'   => false
         ]);
 
