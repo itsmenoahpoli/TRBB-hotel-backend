@@ -6,6 +6,8 @@ use Symfony\Component\HttpKernel\Exception\HttpException;
 use Illuminate\Support\Facades\Auth;
 use App\Models\User;
 use App\Models\UserOtp;
+use Symfony\Component\HttpFoundation\Exception\BadRequestException;
+use Symfony\Component\HttpKernel\Exception\BadRequestHttpException;
 use Symfony\Component\HttpKernel\Exception\NotFoundHttpException;
 
 class AuthService
@@ -37,7 +39,7 @@ class AuthService
         throw new HttpException(401, 'USER_NOT_FOUND');
     }
 
-    public function unauthenticate($user, $sessionId)
+    public function unauthenticate($user)
     {
         $user->currentAccessToken()->delete();
 
@@ -62,8 +64,15 @@ class AuthService
         return true;
     }
 
-    public function verifyOTP($email, $otp)
+    public function verifyOTP($code)
     {
-        //
+        $otp = $this->userOtp->query()->find('code', $code)->first();
+
+        if ($otp->is_used)
+        {
+            throw new BadRequestHttpException('CODE_IS_INVALID');
+        }
+
+        return true;
     }
 }
