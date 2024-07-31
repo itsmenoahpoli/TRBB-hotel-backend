@@ -1,10 +1,10 @@
 <?php
 
-namespace App\Http\Requests\Contents;
+namespace App\Http\Requests\Admin\Facility;
 
 use Illuminate\Foundation\Http\FormRequest;
 
-class UpdateContentRequest extends FormRequest
+class CreateRoomRequest extends FormRequest
 {
     /**
      * Determine if the user is authorized to make this request.
@@ -22,9 +22,7 @@ class UpdateContentRequest extends FormRequest
     public function rules(): array
     {
         return [
-            'category'      => 'string|required',
-            'name'          => 'string|required',
-            'status'        => 'enum:draft,published,archived|nullable'
+            //
         ];
     }
 }

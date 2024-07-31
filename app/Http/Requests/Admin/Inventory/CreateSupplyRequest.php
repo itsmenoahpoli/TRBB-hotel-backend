@@ -1,10 +1,10 @@
 <?php
 
-namespace App\Http\Requests\Admin\Inventpry;
+namespace App\Http\Requests\Admin\Inventory;
 
 use Illuminate\Foundation\Http\FormRequest;
 
-class UpdateSupplyRequest extends FormRequest
+class CreateSupplyRequest extends FormRequest
 {
     /**
      * Determine if the user is authorized to make this request.

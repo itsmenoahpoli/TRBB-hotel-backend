@@ -8,8 +8,8 @@ use Illuminate\Http\JsonResponse;
 use Symfony\Component\HttpFoundation\Response;
 use App\Helpers\ParamsHelper;
 use App\Services\Admin\Inventory\InventorySuppliesService;
-use App\Http\Requests\Admin\Inventpry\CreateSupplyRequest;
-use App\Http\Requests\Admin\Inventpry\UpdateSupplyRequest;
+use App\Http\Requests\Admin\Inventory\CreateSupplyRequest;
+use App\Http\Requests\Admin\Inventory\UpdateSupplyRequest;
 
 class SuppliesController extends Controller
 {

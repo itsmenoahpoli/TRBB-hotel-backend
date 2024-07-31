@@ -8,8 +8,8 @@ use Illuminate\Http\JsonResponse;
 use Symfony\Component\HttpFoundation\Response;
 use App\Helpers\ParamsHelper;
 use App\Services\Admin\AccountsService;
-use App\Http\Requests\Admin\Accounts\CreateAccountRequest;
-use App\Http\Requests\Admin\Accounts\UpdateAccountRequest;
+use App\Http\Requests\Admin\Account\CreateAccountRequest;
+use App\Http\Requests\Admin\Account\UpdateAccountRequest;
 
 class AccountsController extends Controller
 {

@@ -1,17 +1,17 @@
 <?php
 
-namespace App\Http\Requests\Contents;
+namespace App\Http\Requests\Admin\Inventory;
 
 use Illuminate\Foundation\Http\FormRequest;
 
-class CreateContentRequest extends FormRequest
+class UpdateSupplyRequest extends FormRequest
 {
     /**
      * Determine if the user is authorized to make this request.
      */
     public function authorize(): bool
     {
-        return true;
+        return false;
     }
 
     /**
@@ -22,11 +22,7 @@ class CreateContentRequest extends FormRequest
     public function rules(): array
     {
         return [
-            'name'          => 'required|string|unique:content_files',
-            'category'      => 'required|string',
-            'group'         => 'nullable|string',
-            'status'        => 'nullable|enum:draft,published,archived',
-            'file'          => 'required|image|mimes:jpeg,png,gif|max:2048'
+            //
         ];
     }
 }

@@ -25,7 +25,7 @@ class AuthService
             /**
              * @var App\Models\User $user
              */
-            $user = Auth::user();
+            $user = Auth::user()->load('user_role');
             $token = $user->createToken(
                 'authToken', ['*'], now()->addHours(24)
             )->plainTextToken;
