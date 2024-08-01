@@ -4,7 +4,7 @@ namespace App\Repositories;
 
 use Illuminate\Database\Eloquent\Model;
 use Spatie\QueryBuilder\QueryBuilder;
-use App\Repositories\Interfaces\BaseRepositoryInterface;
+use App\Repositories\_Interfaces\BaseRepositoryInterface;
 
 class BaseRepository implements BaseRepositoryInterface
 {
